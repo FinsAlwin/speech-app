@@ -10,10 +10,10 @@ import {
   Col,
 } from "react-bootstrap";
 import { ModelData, BackGroundData } from "../../data/Items";
-import { BASE_URL } from "../../config";
+import { BASE_URL, SOCKET_URL } from "../../config";
 import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
-const socket = io("http://localhost:4000/");
+const socket = io(`${SOCKET_URL}`);
 
 const Select = (props) => {
   const navigate = useNavigate();

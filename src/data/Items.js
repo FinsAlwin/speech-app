@@ -5,12 +5,12 @@ export const ModelData = [
     modelUrl: "/models/hiyori/hiyori_pro_t10.model3.json",
     sampleUrl: "/models/hiyori/hiyori.png",
   },
-  {
-    id: 2,
-    title: "Mark",
-    modelUrl: "/models/mark_free/mark_free_t04.model3.json",
-    sampleUrl: "/models/mark_free/mark.png",
-  },
+  // {
+  //   id: 2,
+  //   title: "Mark",
+  //   modelUrl: "/models/mark_free/mark_free_t04.model3.json",
+  //   sampleUrl: "/models/mark_free/mark.png",
+  // },
   {
     id: 3,
     title: "Haru",
