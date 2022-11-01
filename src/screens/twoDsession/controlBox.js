@@ -8,8 +8,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import io from "socket.io-client";
 import { Row, Col, Container } from "react-bootstrap";
+import { SOCKET_URL } from "../../config";
 
-const socket = io("http://localhost:4000/");
+const socket = io(`${SOCKET_URL}`);
 
 const ControlBox = (props) => {
   const [reinforcement, setReinforcement] = useState(false);
