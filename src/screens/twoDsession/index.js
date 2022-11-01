@@ -7,11 +7,11 @@ import LeftMenu from "../../components/AdminVideoCall/LeftMenu";
 import { Fireworks } from "@fireworks-js/react";
 import ControlBox from "./controlBox";
 import bg from "../../images/bg.jpg";
-import { BASE_URL } from "../../config";
+import { BASE_URL, SOCKET_URL } from "../../config";
 import { useSelector, useDispatch } from "react-redux";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:4000/");
+const socket = io(`${SOCKET_URL}`);
 
 let APP_ID = "7d1754924930464fb10e4130707ee1d6";
 
