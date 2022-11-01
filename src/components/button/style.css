@@ -1,0 +1,23 @@
+.controlButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-color-red {
+  background-color: #b33f40;
+}
+
+.bg-color-opacity {
+  border-style: solid;
+  border-color: #b33f40;
+}
+
+.bg-color-opacity-white {
+  border-style: solid;
+  border-color: #fff;
+}

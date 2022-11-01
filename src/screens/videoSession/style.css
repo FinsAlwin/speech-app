@@ -1,0 +1,26 @@
+.formSession {
+  margin: 10%;
+}
+
+.tabContainer {
+  margin: 15px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabImageContainer {
+  padding: 5px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.onActiveTab {
+  background-color: aqua;
+}
+
+.tabImageContainer:active {
+  background-color: aqua;
+}

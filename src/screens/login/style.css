@@ -1,0 +1,18 @@
+.loginFormContainer {
+  margin-top: 25%;
+  width: 100%;
+  border-style: solid;
+  border-color: #b3e820;
+  border-radius: 30px;
+  display: flex;
+}
+
+.logoContainer {
+  padding: 20px;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

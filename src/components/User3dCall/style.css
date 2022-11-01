@@ -1,0 +1,29 @@
+.threedContainer {
+  margin-top: 10px;
+  width: 100%;
+  height: 85vh;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.spinnerContainer {
+  padding-top: 10%;
+  padding-left: 50%;
+}
+
+.threedrender {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.threedrenderCanvas {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  z-index: 1;
+}

@@ -1,0 +1,55 @@
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25%;
+}
+
+.box {
+  width: 100%;
+  height: 90vh;
+  border-style: solid;
+  border-color: #b3e820;
+  border-radius: 26px;
+  display: flex;
+  justify-content: center;
+}
+
+.localStreamContainer {
+  top: 10px;
+  left: 10px;
+  width: 200px;
+  height: 140px;
+  position: relative;
+  border-radius: 16px;
+  background-color: black;
+}
+
+.buttonContainer {
+  bottom: 5px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.video-player {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.cardMenu {
+  margin: 20px;
+  height: 20%;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 30px;
+}

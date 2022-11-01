@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { useRoutes } from "react-router-dom";
+import Themeroutes from "./routes/Router";
+import { useSelector, useDispatch } from "react-redux";
+import { isNotifications, setNotificationMessage } from "./redux/User/action";
+import io from "socket.io-client";
+
+const socket = io("http://localhost:4000/");
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const dispatch = useDispatch();
+  const routing = useRoutes(Themeroutes);
+  const { user } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    socket.on("connection", (client) => {
+      console.log("a user connected");
+      client.on("disconnect", () => {
+        console.log("user disconnected");
+      });
+    });
+
+    socket.on("notification", notification);
+  }, [socket]);
+
+  async function notification(data) {
+    await dispatch(isNotifications());
+    await dispatch(setNotificationMessage(data));
+  }
+
+  return <div className="dark">{routing}</div>;
 }
 
 export default App;

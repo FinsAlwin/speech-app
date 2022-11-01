@@ -1,0 +1,46 @@
+.menuContainer {
+  margin-top: 10px;
+  width: 100%;
+  height: 85vh;
+  border-radius: 30px;
+  border-style: solid;
+  border-color: blueviolet;
+}
+
+.detailsContainer {
+  margin-top: 10px;
+  width: 100%;
+  height: 85vh;
+  border-radius: 30px;
+  border-style: solid;
+  border-color: blueviolet;
+}
+
+.callContainer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.callButtonRed {
+  width: 49px;
+  height: 49px;
+  background-color: brown;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.callButtonGreen {
+  width: 49px;
+  height: 49px;
+  background-color: darkgreen;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
