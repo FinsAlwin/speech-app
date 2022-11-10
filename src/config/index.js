@@ -6,5 +6,5 @@ export const SOCKET_URL =
   "ws://ec2-3-108-64-255.ap-south-1.compute.amazonaws.com:8080/ws";
 
 export const socket = new WebSocket(
-  "ws://ec2-3-108-64-255.ap-south-1.compute.amazonaws.com:8080/ws"
+  "http://ec2-3-108-64-255.ap-south-1.compute.amazonaws.com:8080/ws"
 );
