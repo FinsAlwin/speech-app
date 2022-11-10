@@ -10,10 +10,10 @@ import {
   Col,
 } from "react-bootstrap";
 import { ModelData, BackGroundData } from "../../data/Items";
-import { BASE_URL, SOCKET_URL } from "../../config";
+import { BASE_URL, socket } from "../../config";
 import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
-const socket = io(`${SOCKET_URL}`);
+// const socket = new WebSocket(`${SOCKET_URL}`);
 
 const Select = (props) => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const Select = (props) => {
   const randomNumber = String(Math.floor(Math.random() * 10000));
   const handleCreateSession = async () => {
     if (background && model) {
-      const payload = {
+      const payload = JSON.stringify({
         userId: props.clientData.id,
         username: props.clientData.username,
         peerId: user.id,
@@ -42,9 +42,11 @@ const Select = (props) => {
         link: `/video-sessions/${user.username}.${props.clientData.username}.${randomNumber}`,
         modelUrl: filterById(ModelData, model).modelUrl,
         backGroundUrl: filterById(BackGroundData, background).url,
-      };
+      });
 
-      await socket.emit("chatNotications", payload);
+      // await socket.emit("chatNotications", payload);
+
+      await socket.send(payload);
 
       navigate(
         `/video-sessions/${user.username}.${props.clientData.username}.${randomNumber}`

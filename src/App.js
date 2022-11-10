@@ -2,31 +2,50 @@ import React, { useState, useEffect } from "react";
 import { useRoutes } from "react-router-dom";
 import Themeroutes from "./routes/Router";
 import { useSelector, useDispatch } from "react-redux";
-import { SOCKET_URL } from "./config";
+import { socket } from "./config";
 import { isNotifications, setNotificationMessage } from "./redux/User/action";
-import io from "socket.io-client";
+// import io from "socket.io-client";
 
-const socket = io(`${SOCKET_URL}`);
+// const socket = new WebSocket(`${SOCKET_URL}`);
 
 function App() {
   const dispatch = useDispatch();
   const routing = useRoutes(Themeroutes);
-  const { user } = useSelector((state) => state.user);
+  // const { user } = useSelector((state) => state.user);
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    socket.on("connection", (client) => {
-      console.log("a user connected");
-      client.on("disconnect", () => {
-        console.log("user disconnected");
-      });
-    });
+    socket.onopen = () => {
+      console.log("Successfully Connected");
+      socket.send("Hi From the Client!");
+    };
 
-    socket.on("notification", notification);
+    socket.onclose = (event) => {
+      console.log("Socket Closed Connection: ", event);
+      socket.send("Client Closed!");
+    };
+
+    socket.onerror = (error) => {
+      console.log("Socket Error: ", error);
+    };
+
+    socket.onmessage = async (e) => {
+      const obj = JSON.parse(e.data);
+      // const data = JSON.parse(obj.body);
+
+      if (obj.type == 2) {
+        notification(obj);
+      }
+    };
   }, [socket]);
 
   async function notification(data) {
-    await dispatch(isNotifications());
-    await dispatch(setNotificationMessage(data));
+    const dataBody = JSON.parse(data.body);
+
+    if (dataBody.userId == user.id && user.userType == 0) {
+      await dispatch(isNotifications());
+      await dispatch(setNotificationMessage(dataBody));
+    }
   }
 
   return <div className="dark">{routing}</div>;

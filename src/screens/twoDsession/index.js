@@ -7,11 +7,11 @@ import LeftMenu from "../../components/AdminVideoCall/LeftMenu";
 import { Fireworks } from "@fireworks-js/react";
 import ControlBox from "./controlBox";
 import bg from "../../images/bg.jpg";
-import { BASE_URL, SOCKET_URL } from "../../config";
+import { BASE_URL, socket } from "../../config";
 import { useSelector, useDispatch } from "react-redux";
 import io from "socket.io-client";
 
-const socket = io(`${SOCKET_URL}`);
+// const socket = new WebSocket(`${SOCKET_URL}`);
 
 let APP_ID = "7d1754924930464fb10e4130707ee1d6";
 
@@ -91,8 +91,12 @@ const TwoDSession = () => {
   }, [isFace]);
 
   useEffect(() => {
-    socket.on("firework", firework);
-  });
+    // socket.onmessage = async (e) => {
+    //   const obj = JSON.parse(e.data);
+    //   console.log(obj);
+    //   setIsFireworkActive(true);
+    // };
+  }, [socket]);
 
   useEffect(() => {
     async function getWrtc() {
@@ -130,10 +134,6 @@ const TwoDSession = () => {
   const handleTestStream = (e) => {
     // setRemoteStream(e);
     setLocalStream(e);
-  };
-
-  const firework = (data) => {
-    setIsFireworkActive(data);
   };
 
   const handleUserLeft = (MemberId) => {

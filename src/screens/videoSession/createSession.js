@@ -4,8 +4,8 @@ import { UserData } from "../../data/User";
 import { useNavigate } from "react-router-dom";
 import Select from "./select";
 import io from "socket.io-client";
-import { SOCKET_URL } from "../../config";
-const socket = io(`${SOCKET_URL}`);
+import { socket } from "../../config";
+// const socket = new WebSocket(`${SOCKET_URL}`);
 
 const CreateSession = (props) => {
   const navigate = useNavigate();

@@ -8,9 +8,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import io from "socket.io-client";
 import { Row, Col, Container } from "react-bootstrap";
-import { SOCKET_URL } from "../../config";
+import { socket } from "../../config";
 
-const socket = io(`${SOCKET_URL}`);
+// const socket = new WebSocket(`${SOCKET_URL}`);
 
 const ControlBox = (props) => {
   const [reinforcement, setReinforcement] = useState(false);
@@ -23,7 +23,7 @@ const ControlBox = (props) => {
         setReinforcement(false);
       }, 10000);
     } else {
-      socket.emit("firework", false);
+      socket.send(false);
     }
   });
 
@@ -32,7 +32,7 @@ const ControlBox = (props) => {
       setReinforcement(false);
     } else {
       setReinforcement(true);
-      socket.emit("firework", true);
+      socket.send(true);
     }
   };
 
